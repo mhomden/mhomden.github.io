@@ -1,0 +1,329 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- This meta tag needs to be added for IE11 compatibility -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Redirecting Website...</title>
+  <style>
+    body {
+      background-color: #F3F3F3;
+      background-image: url("background-node.png");
+      background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center bottom;
+      font-family: "SJ Sans","Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+      word-break: break-all;
+    }
+    p {
+      font-size: 13px;
+      line-height: 18px;
+    }
+    h1 {
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: 1px;
+    }
+    hr {
+      border: 0;
+        height: 0;
+        border-top: 1px solid #EEEEEE;
+      margin: 20px 0 20px 0;
+    }
+    a {
+      color: #1569D7;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+      color: #0398E2;
+    }
+    button {
+      background-color: #1569D7;
+      border: 0px;
+      color: #FFFFFF;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      height: 30px;
+      width: 100px;
+      border-radius: 2px;
+      -webkit-box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.16);
+      -moz-box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.16);
+      box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.16);
+      margin: 5px 0 5px 0;
+    }
+    button:hover {
+      background-color: #0398E2;
+    }
+    .container {
+      background-color:#FFFFFF;
+      -webkit-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16);
+      -moz-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16);
+      box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16);
+      border-radius: 4px;
+      max-width: 540px;
+      margin: 0 auto;
+      margin-top: 30px;
+    }
+    .header {
+      background-color: #B90F33;
+      color: #FFFFFF;
+      text-align: center;
+      padding: 5px;
+      border-radius: 4px 4px 0px 0px;
+    }
+    .content {
+      padding: 10px 20px 20px 20px;
+    }
+    .center {
+      text-align: center;
+    }
+    .companyname {
+      font-weight: 600;
+      color: #B90F33;
+    }
+    .countdown {
+      text-align: center;
+      font-weight: 600;
+      font-size: 40px;
+      line-height: 50px;
+    }
+    .isolation-link {
+      font-size: 16px;
+    }
+    .proofpoint-logo {
+      display: block;
+      margin-left: auto;
+      height: 44px; }
+    }
+
+    @media (max-width: 700px) {
+      body {
+        background-color: #fff;
+      }
+      .container {
+        width: auto;
+        margin: 0 auto;
+        border-radius: 0;
+        padding: 1em;
+      }
+    }
+  </style>
+  <!-- https://weblifeio.github.io/blockpage-integration/js/script.js -->
+  <script src="js/script.js"></script>
+</head>
+<body>
+<div id="pfpt-message"></div>
+<script>
+  /*
+      BLOCK PAGE VARIABLES
+  */
+
+  // ---------
+  // BLUE COAT
+  // ---------
+  // ALTERNATE/TEST/EXPERIMENTAL VARIABLES
+      // console.log("BC queryIDHTML: " + urlCategoryHTML);
+      // console.log("BC queryIDHTMLNoQuotes: " + urlCategoryHTMLNoQuotes);
+      // console.log("BC anotherUrl_log_url: " + '$(log_url)');
+      // var urlCategoryHTML = document.getElementById('categories').innerHTML; // FULL URL
+      // var urlCategoryHTMLNoQuotes = document.getElementById('categories').innerHTML.replace(/['"]+/g, ''); // FULL URL
+      // var targetUrl = '$(log_url)';
+      // ##### BELOW USED AS OF 2/6/2019 #####
+      // var urlCategory = '$(cs-uri-categories)';
+      // var targetUrl = '$(url.host)';
+      // ##### USED IN PORTAL.THREATPLUSE.COM (Symantec Web Security Service) #####
+      // var targetUrl = '$(log_url)' // (USE THIS)
+      // var targetUrl = window.location.href; // (USE THIS)
+      // var urlCategory = "$(cs-categories)"; // (USE THIS)
+
+  // PRODCUTION VARIABLES
+      // console.log("BC targetUrl: " + '$(log_url)'); // (CONFIRMED TO USE. Use as variable - no quotes.)
+      // console.log("BC urlCategory: " + urlCategory); // (CONFIRMED TO USE. Use as variable - no quotes.) Single or multiple categories (e.g., 'Webmail' or 'Webamil;Gambling;Weapons')
+      // console.log("BC appName: " + appName); // (CONFIRMED TO USE. Use as variable - no quotes.)
+      // console.log("BC appAction: " + appAction); // (CONFIRMED TO USE. Use as variable - no quotes.)
+      // var targetUrl = url_host; // (USE '$(log_url)' below)
+      // var targetUrl = '$(log_url)' // (USE THIS)
+      // var urlCategory = response_categories; // (USE THIS)
+      // var appName = application_name; // (USE THIS)
+      // var appAction = application_action_name; // (USE THIS)
+
+  // BC TEST DATA
+      // var appName = "Lync Online";
+      // var appAction = "Chat/Instant Messaging";
+
+  // ---------
+  // FORCEPOINT (WEBSENSE) - (CONFIRMED TO USE. Wrap with single quotes.)
+  // http://www.websense.com/content/support/library/web/v85/block_pages/custom_block_pages.pdf
+  // ---------
+      // var targetUrl = '$*WS_URL*$'
+      // var urlCategory = '$*WS_CATEGORY*$'
+
+  // ---------
+  // MCAFEE WEB GATEWAY
+  // https://community.mcafee.com/t5/Documents/Web-Gateway-Customizing-Block-Pages/ta-p/553911
+  // https://www.youtube.com/watch?v=s4d3ESsF7Jk
+  // ---------
+      // TBD
+
+  // ---------
+  // PALO ALTO - (CONFIRMED TO USE. Wrap with single quotes.)
+  // ---------
+      // console.log('PA Rulename: ' + '<rulename/>');
+      // console.log('PA User: ' + '<user/>');
+      // console.log('PA URL: ' + '<url/>');
+      // console.log('PA Category: ' + '<category/>');
+      // var urlCategory = '<category/>'; // (USE THIS)
+      // var targetUrl = '<url/>'; // (USE THIS)
+
+  // ---------
+  // SOPHOS CENTRAL (https://cloud.sophos.com)
+  // ---------
+      // var sophosReason = '${reason}'; // (USE THIS)
+      // var sophosReasonTest = 'URL (gmail.com) blocked as part of category: Web Email'; // Used for testing
+      // var regexURL = /\((.*)\)/g; // The last open bracket is looking for text inside HTML (USE THIS)
+      // var regexCategory = /:\s(.*)\s*</g; // The last open bracket is looking for text inside HTML (USE THIS)
+      // var targetUrl = regexUrl.exec(sophosReason)[1]; // (USE THIS)
+      // var urlCategory = regexCategory.exec(sophosReason)[1]; // (USE THIS)
+
+  // ---------
+  // ZSCALER
+  // ---------
+      // https://zscaler.zendesk.com/hc/en-us/articles/204436659-How-do-I-configure-block-notifications-
+      // https://help.zscaler.com/zia/customizing-aup-and-euns-css-styles
+  // ALTERNATE VARIABLES
+      // var urlCategoryHTML = document.querySelector('.eu_co.rsn').innerHTML; // FULL URL
+      // var urlCategoryHTMLNoQuotes = document.getElementById('categories').innerHTML.replace(/['"]+/g, ''); // FULL URL
+      // console.log('Zscaler urlCategoryHTML: ', urlCategoryHTML);
+      // var regexURL = /\((.*)\)/g; // The last open bracket is looking for text inside HTML (USE THIS)
+      // var regexCategory = /:\s(.*)\s*</g; // The last open bracket is looking for text inside HTML (USE THIS)
+      // var targetUrl = regexUrl.exec(sophosReason)[1]; // (USE THIS)
+      // var urlCategory = regexCategory.exec(sophosReason)[1]; // (USE THIS)
+
+  // ---------
+  // CISCO FirePower
+  // ---------
+      // urlCategory: 'urlCategory', <Wrap the variable on line 261-ish with single quotes since we cannot get the URL Category from FirePower>
+      // targetUrl: window.location.href // Use JS to grab the URL since FirePower doesn't display the URL.
+
+  // ---------
+  // CISCO Umbrella
+  // ---------
+      // Documentation
+      // https://support.umbrella.com/hc/en-us/articles/231265808-Setting-up-a-Block-Page-a-Block-Page-Bypass-User-and-a-Block-Page-Bypass-Code
+      // https://github.com/opendns/SampleBlockPages/blob/master/block.html
+
+      // Test URL w/ Cisco Umbrella parameters
+      // weblifeio.github.io/blockpage-umbrella/?cats=%5B"Webmail"%5D&client_ip=216.250.140.8&type=aup&url=uggc%3A%2F%2Fznvy.tbbtyr.pbz
+
+      /* Helper Functions
+       * Uncomment the code section below.
+       */
+
+    //   // Parse and update 'urlParams'
+    //   var urlParams;
+    //   function getUrlParams() {
+    //       var match,
+    //           pl     = /\+/g,  // Regex for replacing addition symbol with a space
+    //           search = /([^&=]+)=?([^&]*)/g,
+    //           decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
+    //           query  = window.location.search.substring(1);
+
+    //       urlParams = {};
+    //       while (match = search.exec(query))
+    //          urlParams[decode(match[1])] = decode(match[2]);
+    //   };
+    //   getUrlParams();
+
+    //   // Convert from ROT13 to readable URL (Cisco Umbrella is doing this)
+    //   function rot13(s) {
+    //     return s.replace(/[a-zA-Z]/g,function(c){return String.fromCharCode((c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26);});
+    //   }
+
+    //   // Check for empty object
+    //   function isEmpty(obj) {
+    //     return Object.keys(obj).length === 0 && obj.constructor === Object
+    //   }
+
+    //   if (!isEmpty(urlParams)) {
+    //     if (urlParams.cats) {
+    //       var urlCategory = JSON.parse(urlParams.cats);
+    //     } else {
+    //       var urlCategory = 'Not Available';
+    // .   }
+    //     var urlCategory = JSON.parse(urlParams.cats);
+    //     var targetUrl = rot13(urlParams.url);
+    //     console.log('Categories: ' + urlCategory);
+    //     console.log('URL: ' + targetUrl);
+    //   }
+
+      /* End of Helper Functions - Uncomment above */
+
+  // ---------
+  // General Test Data
+  // ---------
+      var urlCategory = 'Web Email';
+      var targetUrl = 'www.gmail.com';
+
+  // ---------
+  // Blockpage Message (Customizable)
+  // ---------
+
+  var countdownNum = 10;
+
+  var messageTop =
+      '<div class="header">'
+      + '<h1>REDIRECTING WEBSITE...</h1>'
+    + '</div><!-- header -->'
+    + '<div class="content">'
+      + '<p class="companyname">COMPANY NAME</p>'
+      + '<p>We enable protection to our systems by redirecting your personal web browsing to a safe environment.</p>'
+      + '<p>Contact the <a href="mailto:infosec@company.com">information security team</a> or visit <a href="https://proofpoint.com" target="_blank">this page</a> for more information.</p>'
+      + '<p><strong>URL: </strong>' + targetUrl + '<br><strong>Category: </strong>' + urlCategory + '</p>'
+      + '<hr>';
+
+    var messageCountdown =
+      '<div class="center">'
+        + '<p>Automatically redirecting you in:<br><span class="countdown"></span><br><button class="pauseButton">PAUSE</button></p>';
+      '</div>';
+
+    var messageBottom =
+    '<div class="center">'
+      +'<p>Click this secure link to continue:</p>'
+      + '<span class="isolation-link"><a class="isolation-link-url" href="">' + targetUrl + '</a></span>'
+      + '<img class="proofpoint-logo" src="proofpoint-isolation.png" title="Proofpoint Isolation" alt="Proofpoint Isolation"/>'
+    + '</div>'
+    + '</div><!-- content -->';
+
+  // ---------
+  // Isolation List for Proofpoint message display or redirection:
+  // ---------
+  // Wildcard option is available. e.g., ['*email', 'https://*', '*gmail*', 'https://www.hotmail.com']
+  var isolateList = {
+      isolate_url_category: ['*mail']
+      // isolate_url: ['*gmail.com', 'www.youtube.com'],
+      // isolate_app_name: ['Lync Online'],
+      // isolate_app_action: ['Chat/Instant Messaging'],
+  };
+
+  // ---------
+  // Invoke the Weblife function
+  // ---------
+  weblife({
+      pfptEnv: 'https://proofpointisolation.com/browser?url=', // REQUIRED: Replace with PROD or POC isolation environment.
+      urlCategory: urlCategory, // REQUIRED: Sets the URL category that will be isolated.
+      targetUrl: targetUrl, // REQUIRED: Set the target URL of the destination.
+      // appName: appName, // OPTIONAL
+      // appAction: appAction, // OPTIONAL
+      isolateList: isolateList, // REQUIRED: This is the isolation rule for Proofpoint Isolation.
+      autoRedirect: false, // REQUIRED: Auto-redirect options (true, false, 'countdown').
+      // countdownNum: countdownNum, // OPTIONAL: If using countdown for auto-direct, provide a starting countdown number.
+      containerId: 'pfpt-message', // OPTIONAL: ID of the HTML element that will display Proopoint Isolation message.
+      // notification: 'You have been redirected to Proofpoint Isolation based on your company\'s policy. Please click {here} for more information.',
+      // //'Message that users will see after the redirect. {Link with explanation} and some more words', // OPTIONAL
+      // notificationLink: 'https://proofpoint.com', // OPTIONAL: proper URL for link in {} in the `notification` field
+  });
+  </script>
+</body>
+</html>
