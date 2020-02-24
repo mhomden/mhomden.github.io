@@ -277,7 +277,7 @@
       + '<h1>REDIRECTING WEBSITE...</h1>'
     + '</div><!-- header -->'
     + '<div class="content">'
-      + '<p class="companyname">COMPANY NAME</p>'
+      + '<p class="companyname">Saudi Aramco</p>'
       + '<p>We enable protection to our systems by redirecting your personal web browsing to a safe environment.</p>'
       + '<p>Contact the <a href="mailto:infosec@saudiaramco.com">information security team</a> or visit <a href="https://www.saudiaramco.com" target="_blank">this page</a> for more information.</p>'
       + '<p><strong>URL: </strong>' + targetUrl + '<br><strong>Category: </strong>' + urlCategory + '</p>'
@@ -318,8 +318,8 @@
       // appName: appName, // OPTIONAL
       // appAction: appAction, // OPTIONAL
       isolateList: isolateList, // REQUIRED: This is the isolation rule for Proofpoint Isolation.
-      autoRedirect: false, // REQUIRED: Auto-redirect options (true, false, 'countdown').
-      // countdownNum: countdownNum, // OPTIONAL: If using countdown for auto-direct, provide a starting countdown number.
+      autoRedirect: countdown, // REQUIRED: Auto-redirect options (true, false, 'countdown').
+      countdownNum: countdownNum, // OPTIONAL: If using countdown for auto-direct, provide a starting countdown number.
       containerId: 'pfpt-message', // OPTIONAL: ID of the HTML element that will display Proopoint Isolation message.
       // notification: 'You have been redirected to Proofpoint Isolation based on your company\'s policy. Please click {here} for more information.',
       // //'Message that users will see after the redirect. {Link with explanation} and some more words', // OPTIONAL
