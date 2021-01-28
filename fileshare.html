@@ -263,8 +263,8 @@
   // ---------
   // General Test Data
   // ---------
-      var urlCategory = 'Web Email';
-      var targetUrl = 'mail.google.com';
+      var urlCategory = 'File Sharing';
+      var targetUrl = 'www.file.io';
 
   // ---------
   // Blockpage Message (Customizable)
@@ -278,7 +278,7 @@
     + '</div><!-- header -->'
     + '<div class="content">'
       + '<p class="companyname">Proofpoint</p>'
-      + '<p>We enable protection to our systems by redirecting your personal web browsing <br>to a safe environment.</br></p>'
+      + '<p>We enable protection to our systems by redirecting access to File Sharing sites <br>to a safe environment.</br></p>'
       + '<p>Contact the <a href="mailto:infosec@company.com">information security team</a> or visit <a href="https://proofpoint.com" target="_blank">this page</a> for more information.</p>'
       + '<p><strong>URL: </strong>' + targetUrl + '<br><strong>Category: </strong>' + urlCategory + '</p>'
       + '<hr>';
@@ -301,7 +301,7 @@
   // ---------
   // Wildcard option is available. e.g., ['*email', 'https://*', '*gmail*', 'https://www.hotmail.com']
   var isolateList = {
-      isolate_url_category: ['*mail']
+      isolate_url_category: ['*sharing']
       // isolate_url: ['*gmail.com', 'www.youtube.com'],
       // isolate_app_name: ['Lync Online'],
       // isolate_app_action: ['Chat/Instant Messaging'],
