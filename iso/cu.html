@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>URL Redirected to Proofpoint Isolation</title>
+<script language="Javascript">
+<!-- Start of Proofpoint Isolation Code -->
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const bUrl = unescape(urlParams.get('url'));
+
+console.log(bUrl);
+	if (!bUrl.startsWith("uggc")) {
+		const iso = new URL("http://" + bUrl);
+		console.log(iso);
+	}
+	else {
+		const iso = new URL(bUrl);
+		console.log(iso);
+	}
+
+const encoded = unescape(urlParams.get('encoding'));
+console.log(encoded);
+
+function rot13(str) 
+{
+	return str.replace(/[a-zA-Z]/g, function(c){
+		return String.fromCharCode((c <= 'Z' ? 90 : 122) >= (c = c.charCodeAt(0) + 13) ? c : c - 26);
+  });
+}
+
+function urlDecode(redirect) {
+	// Get the domain query parameter, use www.proofpoint.com if we don't have one.
+	if (redirect == null) {
+		console.log("URL parameter is null");
+	}
+	else if (!redirect.startsWith("uggc")) {
+		redirect = rot13(redirect);
+		console.log(redirect + " this does not have a protocol scheme or the URL is not ROT13 encoded");
+		window.location.replace("https://proofpointisolation.com/browser?url=" + redirect);
+	}
+	else if (redirect) {
+        redirect = rot13(unescape(redirect));
+        // Since http:// is no longer passed, the above is the domain to print
+		console.log(redirect + " this is the parsed domain ROT13 decoded");
+		window.location.replace("https://proofpointisolation.com/browser?url=" + redirect);
+    }
+    else {
+        redirect = "www.proofpoint.com";
+		console.log(redirect + " this is the default domain");
+    }
+}
+;
+if (encoded == "rot13") {
+		urlDecode(bUrl);
+	}
+	else {
+		window.location.replace("https://proofpointisolation.com/browser?url=" + iso);
+	}
+;
+<!-- End of Proofpoint Isolation Code -->
+</script>
+</head>
+</body>
+</html>
