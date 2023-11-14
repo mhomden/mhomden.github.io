@@ -90,8 +90,10 @@
                     		<script>
 					const params = new URLSearchParams(document.location.search);
 					const rurl = params.get("rurl");
+					const email = params.get("email");
+					const domain = params.get("domain");
 					console.info(rurl);
-					isoCode = "You are blocked from browsing to<br><b>"+rurl+"</b></br>by company policy.<p><b>If access is required, this can be done in a safe environment via Proofpoint Isolation and by clicking <a href='https://proofpointisolation.com/browser?url="+rurl+"'>Here</a></b>";
+					isoCode = "You are blocked from browsing to<br><b>"+rurl+"</b></br>by company policy.<p><b>If access is required, this can be done in a safe environment via Proofpoint Isolation and by clicking <a href='https://proofpointisolation.com/browser?url="+rurl+"&email="+email+"&domain="+domain+"'>Here</a></b>";
 					document.getElementById("isoText").innerHTML = isoCode;
 				</script>
 		    </div>
