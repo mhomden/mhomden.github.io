@@ -11,11 +11,11 @@
 		const params = new URLSearchParams(document.location.search);
 		const rurl = params.get("rurl");
 		const email = params.get("email");
-		const domain = params.get("domain");
+		//const domain = params.get("domain");
 		const cat = params.get("cat");
 		console.info(rurl);
 		console.info(email);
-		console.info(domain);
+		//console.info(domain);
 		console.info(cat);
 	<!-- End of Proofpoint Isolation Code -->
 	</script>
@@ -132,7 +132,7 @@
 		switch(category) 
 		{ 
 			case 'web-based-email':
-				isoCode = "<b>If access is required, this can be done in a safe environment via Proofpoint Isolation and by clicking <a href='https://proofpointisolation.com/browser?email="+email+"&domain="+domain+"&url="+rurl+"'>Here</a></b>";
+				isoCode = "<b>If access is required, this can be done in a safe environment via Proofpoint Isolation and by clicking <a href='https://proofpointisolation.com/browser?email="+email+"&url="+rurl+"'>Here</a></b>";
 				document.getElementById("isoText").innerHTML = isoCode;			
 				//document.getElementById("warningText").innerHTML = "If access is required, this can be done in a safe environment via Proofpoint Isolation and by clicking <a href='https://proofpointisolation.com/browser?url='"+rurl+"'>Here</a>"; 
 			break;
